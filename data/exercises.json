@@ -1,0 +1,670 @@
+{
+  "muscles": [
+    {"id": 1,  "name": "Quadriceps",                    "muscle_group": "Lower Body"},
+    {"id": 2,  "name": "Hamstrings",                    "muscle_group": "Lower Body"},
+    {"id": 3,  "name": "Glutes",                        "muscle_group": "Lower Body"},
+    {"id": 4,  "name": "Calves",                        "muscle_group": "Lower Body"},
+    {"id": 5,  "name": "Chest (Pectoralis Major)",      "muscle_group": "Upper Body"},
+    {"id": 6,  "name": "Lats (Latissimus Dorsi)",       "muscle_group": "Upper Body"},
+    {"id": 7,  "name": "Traps (Trapezius)",             "muscle_group": "Upper Body"},
+    {"id": 8,  "name": "Rhomboids",                     "muscle_group": "Upper Body"},
+    {"id": 9,  "name": "Anterior Deltoid",              "muscle_group": "Upper Body"},
+    {"id": 10, "name": "Lateral Deltoid",               "muscle_group": "Upper Body"},
+    {"id": 11, "name": "Posterior Deltoid",             "muscle_group": "Upper Body"},
+    {"id": 12, "name": "Biceps",                        "muscle_group": "Upper Body"},
+    {"id": 13, "name": "Triceps",                       "muscle_group": "Upper Body"},
+    {"id": 14, "name": "Core (Rectus Abdominis)",       "muscle_group": "Core"},
+    {"id": 15, "name": "Obliques",                      "muscle_group": "Core"},
+    {"id": 16, "name": "Lower Back (Erector Spinae)",   "muscle_group": "Core"}
+  ],
+  "exercises": [
+    {
+      "id": 1, "name": "Back Squat",
+      "primary_muscles": ["Quadriceps", "Glutes"],
+      "secondary_muscles": ["Hamstrings", "Core (Rectus Abdominis)", "Lower Back (Erector Spinae)"],
+      "movement_pattern": "squat", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bar on upper traps, brace core, descend until thighs are parallel or below, drive through heels to stand."
+    },
+    {
+      "id": 2, "name": "Front Squat",
+      "primary_muscles": ["Quadriceps"],
+      "secondary_muscles": ["Glutes", "Core (Rectus Abdominis)", "Lower Back (Erector Spinae)"],
+      "movement_pattern": "squat", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "advanced", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bar resting on front delts with elbows high, squat to depth while keeping torso upright."
+    },
+    {
+      "id": 3, "name": "Leg Press",
+      "primary_muscles": ["Quadriceps", "Glutes"],
+      "secondary_muscles": ["Hamstrings"],
+      "movement_pattern": "squat", "equipment": "machine", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Feet shoulder-width on platform, lower until knees are at 90 degrees, press back to start without locking out."
+    },
+    {
+      "id": 4, "name": "Goblet Squat",
+      "primary_muscles": ["Quadriceps", "Glutes"],
+      "secondary_muscles": ["Core (Rectus Abdominis)"],
+      "movement_pattern": "squat", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Hold dumbbell at chest, squat deep keeping torso upright and elbows inside knees."
+    },
+    {
+      "id": 5, "name": "Bulgarian Split Squat",
+      "primary_muscles": ["Quadriceps", "Glutes"],
+      "secondary_muscles": ["Hamstrings", "Core (Rectus Abdominis)"],
+      "movement_pattern": "squat", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": false, "beginner_friendly": false,
+      "instructions": "Rear foot elevated on bench, lower front knee toward floor, drive back up through front heel."
+    },
+    {
+      "id": 6, "name": "Lunges",
+      "primary_muscles": ["Quadriceps", "Glutes"],
+      "secondary_muscles": ["Hamstrings", "Core (Rectus Abdominis)"],
+      "movement_pattern": "squat", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Step forward, lower back knee toward floor, push back to start; alternate legs."
+    },
+    {
+      "id": 7, "name": "Step-Up",
+      "primary_muscles": ["Quadriceps", "Glutes"],
+      "secondary_muscles": ["Hamstrings"],
+      "movement_pattern": "squat", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Step onto a box with one foot, drive through that heel to bring the other foot up, step down with control."
+    },
+    {
+      "id": 8, "name": "Hack Squat",
+      "primary_muscles": ["Quadriceps"],
+      "secondary_muscles": ["Glutes", "Hamstrings"],
+      "movement_pattern": "squat", "equipment": "machine", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Back against pad, feet low and narrow on platform, lower until thighs are parallel, press back up."
+    },
+    {
+      "id": 9, "name": "Leg Extension",
+      "primary_muscles": ["Quadriceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Seated, pad on shins just above ankles, extend legs fully then lower with control."
+    },
+    {
+      "id": 10, "name": "Cyclist Squat",
+      "primary_muscles": ["Quadriceps"],
+      "secondary_muscles": ["Glutes"],
+      "movement_pattern": "squat", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Heels elevated on plates, narrow stance, squat deep with torso upright to maximise quad loading."
+    },
+    {
+      "id": 11, "name": "Romanian Deadlift",
+      "primary_muscles": ["Hamstrings", "Glutes"],
+      "secondary_muscles": ["Lower Back (Erector Spinae)"],
+      "movement_pattern": "hinge", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Hip hinge with soft knees, push hips back until you feel a strong hamstring stretch, drive hips forward to stand."
+    },
+    {
+      "id": 12, "name": "Conventional Deadlift",
+      "primary_muscles": ["Glutes", "Hamstrings"],
+      "secondary_muscles": ["Quadriceps", "Lower Back (Erector Spinae)", "Traps (Trapezius)"],
+      "movement_pattern": "hinge", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bar over mid-foot, hip-width stance, hinge down and grip bar, brace and pull by pushing the floor away."
+    },
+    {
+      "id": 13, "name": "Hip Thrust",
+      "primary_muscles": ["Glutes"],
+      "secondary_muscles": ["Hamstrings", "Quadriceps"],
+      "movement_pattern": "hinge", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Upper back on bench, bar across hips, drive hips to full extension squeezing glutes at top."
+    },
+    {
+      "id": 14, "name": "Good Morning",
+      "primary_muscles": ["Hamstrings", "Lower Back (Erector Spinae)"],
+      "secondary_muscles": ["Glutes"],
+      "movement_pattern": "hinge", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bar on upper traps, hinge at hips with soft knees until torso is near parallel, return to upright."
+    },
+    {
+      "id": 15, "name": "Cable Pull-Through",
+      "primary_muscles": ["Glutes", "Hamstrings"],
+      "secondary_muscles": ["Lower Back (Erector Spinae)"],
+      "movement_pattern": "hinge", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Facing away from cable, rope between legs, hinge forward then drive hips forward to stand tall."
+    },
+    {
+      "id": 16, "name": "Single-Leg Romanian Deadlift",
+      "primary_muscles": ["Hamstrings", "Glutes"],
+      "secondary_muscles": ["Lower Back (Erector Spinae)", "Core (Rectus Abdominis)"],
+      "movement_pattern": "hinge", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": false, "beginner_friendly": false,
+      "instructions": "Balance on one leg, hinge forward lowering dumbbell toward floor, keep hips square."
+    },
+    {
+      "id": 17, "name": "Stiff-Leg Deadlift",
+      "primary_muscles": ["Hamstrings", "Lower Back (Erector Spinae)"],
+      "secondary_muscles": ["Glutes"],
+      "movement_pattern": "hinge", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Legs nearly straight throughout, hinge to lower bar close to legs, focus on hamstring stretch."
+    },
+    {
+      "id": 18, "name": "Sumo Deadlift",
+      "primary_muscles": ["Glutes", "Quadriceps"],
+      "secondary_muscles": ["Hamstrings", "Lower Back (Erector Spinae)"],
+      "movement_pattern": "hinge", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Wide stance with toes turned out, grip inside legs, push floor away and lock out hips."
+    },
+    {
+      "id": 19, "name": "Flat Barbell Bench Press",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Anterior Deltoid", "Triceps"],
+      "movement_pattern": "horizontal_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Grip slightly wider than shoulder-width, lower bar to chest, press back to lockout."
+    },
+    {
+      "id": 20, "name": "Incline Barbell Bench Press",
+      "primary_muscles": ["Chest (Pectoralis Major)", "Anterior Deltoid"],
+      "secondary_muscles": ["Triceps"],
+      "movement_pattern": "horizontal_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bench at 30-45 degrees, lower bar to upper chest, press up and slightly back."
+    },
+    {
+      "id": 21, "name": "Decline Barbell Bench Press",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Triceps", "Anterior Deltoid"],
+      "movement_pattern": "horizontal_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Feet secured, bench declined, lower bar to lower chest and press back up."
+    },
+    {
+      "id": 22, "name": "Flat Dumbbell Press",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Anterior Deltoid", "Triceps"],
+      "movement_pattern": "horizontal_push", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Dumbbells at chest, press up and slightly inward, lower with control for full stretch."
+    },
+    {
+      "id": 23, "name": "Incline Dumbbell Press",
+      "primary_muscles": ["Chest (Pectoralis Major)", "Anterior Deltoid"],
+      "secondary_muscles": ["Triceps"],
+      "movement_pattern": "horizontal_push", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Bench at 30-45 degrees, press dumbbells from upper chest to lockout."
+    },
+    {
+      "id": 24, "name": "Push-Up",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Anterior Deltoid", "Triceps", "Core (Rectus Abdominis)"],
+      "movement_pattern": "horizontal_push", "equipment": "bodyweight", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Hands shoulder-width, body straight from head to heels, lower chest to floor and press back up."
+    },
+    {
+      "id": 25, "name": "Machine Chest Press",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Anterior Deltoid", "Triceps"],
+      "movement_pattern": "horizontal_push", "equipment": "machine", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Adjust seat so handles align with mid-chest, press forward to near-lockout, return with control."
+    },
+    {
+      "id": 26, "name": "Cable Chest Fly",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Anterior Deltoid"],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "High cables, slight forward lean, bring handles together in a hugging arc, hold and return."
+    },
+    {
+      "id": 27, "name": "Dumbbell Chest Fly",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Anterior Deltoid"],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Flat bench, slight elbow bend, lower dumbbells in arc until stretch felt, bring back together."
+    },
+    {
+      "id": 28, "name": "Pec Deck",
+      "primary_muscles": ["Chest (Pectoralis Major)"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Forearms on pads, squeeze arms together to centre, hold briefly, return with control."
+    },
+    {
+      "id": 29, "name": "Barbell Row",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Rhomboids"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid", "Traps (Trapezius)"],
+      "movement_pattern": "horizontal_pull", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Hinge to near-parallel, row bar to lower chest driving elbows back, lower with control."
+    },
+    {
+      "id": 30, "name": "Dumbbell Row",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Rhomboids"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid"],
+      "movement_pattern": "horizontal_pull", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "One hand and knee on bench, pull dumbbell to hip driving elbow back, lower fully."
+    },
+    {
+      "id": 31, "name": "Cable Row",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Rhomboids"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid"],
+      "movement_pattern": "horizontal_pull", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Seated, feet on platform, row handle to abdomen driving elbows back, return to full stretch."
+    },
+    {
+      "id": 32, "name": "Seated Cable Row",
+      "primary_muscles": ["Rhomboids", "Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid", "Traps (Trapezius)"],
+      "movement_pattern": "horizontal_pull", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Sit upright, use neutral grip handle, pull to lower sternum, squeeze shoulder blades, return slowly."
+    },
+    {
+      "id": 33, "name": "Chest-Supported Row",
+      "primary_muscles": ["Rhomboids", "Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid"],
+      "movement_pattern": "horizontal_pull", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Chest on incline bench, row dumbbells upward driving elbows wide, lower with control."
+    },
+    {
+      "id": 34, "name": "Meadows Row",
+      "primary_muscles": ["Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Rhomboids", "Posterior Deltoid"],
+      "movement_pattern": "horizontal_pull", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": false, "beginner_friendly": false,
+      "instructions": "Landmine setup, straddle bar facing end, row to hip with elbow flaring high."
+    },
+    {
+      "id": 35, "name": "Pendlay Row",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Rhomboids"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid", "Lower Back (Erector Spinae)"],
+      "movement_pattern": "horizontal_pull", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bar starts on floor each rep, torso parallel, explosively row to chest then lower to floor."
+    },
+    {
+      "id": 36, "name": "T-Bar Row",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Rhomboids"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid", "Traps (Trapezius)"],
+      "movement_pattern": "horizontal_pull", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Straddle bar, grip handle, hinge torso forward, row to chest squeezing lats, lower fully."
+    },
+    {
+      "id": 37, "name": "Barbell Overhead Press",
+      "primary_muscles": ["Anterior Deltoid", "Lateral Deltoid"],
+      "secondary_muscles": ["Triceps", "Traps (Trapezius)"],
+      "movement_pattern": "vertical_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Bar at upper chest, press overhead to lockout moving head back then through as bar clears, lower with control."
+    },
+    {
+      "id": 38, "name": "Dumbbell Shoulder Press",
+      "primary_muscles": ["Anterior Deltoid", "Lateral Deltoid"],
+      "secondary_muscles": ["Triceps"],
+      "movement_pattern": "vertical_push", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Dumbbells at ear height, press overhead until arms nearly locked, lower back to start."
+    },
+    {
+      "id": 39, "name": "Arnold Press",
+      "primary_muscles": ["Anterior Deltoid", "Lateral Deltoid"],
+      "secondary_muscles": ["Triceps", "Posterior Deltoid"],
+      "movement_pattern": "vertical_push", "equipment": "dumbbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Start with palms facing you, rotate outward as you press overhead, reverse on the way down."
+    },
+    {
+      "id": 40, "name": "Machine Shoulder Press",
+      "primary_muscles": ["Anterior Deltoid", "Lateral Deltoid"],
+      "secondary_muscles": ["Triceps"],
+      "movement_pattern": "vertical_push", "equipment": "machine", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Adjust seat so handles are at shoulder height, press overhead to near lockout, return slowly."
+    },
+    {
+      "id": 41, "name": "Push Press",
+      "primary_muscles": ["Anterior Deltoid", "Lateral Deltoid"],
+      "secondary_muscles": ["Triceps", "Quadriceps", "Glutes"],
+      "movement_pattern": "vertical_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Slight knee dip then explosively drive bar overhead using leg drive, catch at lockout."
+    },
+    {
+      "id": 42, "name": "Landmine Press",
+      "primary_muscles": ["Anterior Deltoid", "Chest (Pectoralis Major)"],
+      "secondary_muscles": ["Triceps", "Lateral Deltoid"],
+      "movement_pattern": "vertical_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Hold end of landmine bar at shoulder, press upward and forward in an arc, return with control."
+    },
+    {
+      "id": 43, "name": "Pull-Up",
+      "primary_muscles": ["Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Rhomboids", "Posterior Deltoid"],
+      "movement_pattern": "vertical_pull", "equipment": "bodyweight", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Overhand grip slightly wider than shoulders, pull chest to bar driving elbows down, lower fully."
+    },
+    {
+      "id": 44, "name": "Chin-Up",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Biceps"],
+      "secondary_muscles": ["Rhomboids", "Posterior Deltoid"],
+      "movement_pattern": "vertical_pull", "equipment": "bodyweight", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Underhand shoulder-width grip, pull chin above bar, lower with control to full extension."
+    },
+    {
+      "id": 45, "name": "Lat Pulldown",
+      "primary_muscles": ["Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Rhomboids"],
+      "movement_pattern": "vertical_pull", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Grip bar wider than shoulders, pull to upper chest driving elbows toward hips, return to full stretch."
+    },
+    {
+      "id": 46, "name": "Wide-Grip Lat Pulldown",
+      "primary_muscles": ["Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Posterior Deltoid"],
+      "movement_pattern": "vertical_pull", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Very wide overhand grip, pull bar to upper chest, emphasise lat stretch at top."
+    },
+    {
+      "id": 47, "name": "Close-Grip Lat Pulldown",
+      "primary_muscles": ["Lats (Latissimus Dorsi)", "Biceps"],
+      "secondary_muscles": ["Rhomboids"],
+      "movement_pattern": "vertical_pull", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Neutral close grip handle, pull to chest keeping elbows close to body, return to full extension."
+    },
+    {
+      "id": 48, "name": "Single-Arm Lat Pulldown",
+      "primary_muscles": ["Lats (Latissimus Dorsi)"],
+      "secondary_muscles": ["Biceps", "Rhomboids"],
+      "movement_pattern": "vertical_pull", "equipment": "cable", "exercise_type": "compound",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "One arm, pull handle to shoulder driving elbow to hip, lean slightly away at bottom."
+    },
+    {
+      "id": 49, "name": "Dumbbell Lateral Raise",
+      "primary_muscles": ["Lateral Deltoid"],
+      "secondary_muscles": ["Traps (Trapezius)"],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Slight forward lean, raise dumbbells to shoulder height with elbows slightly bent, lower slowly."
+    },
+    {
+      "id": 50, "name": "Cable Lateral Raise",
+      "primary_muscles": ["Lateral Deltoid"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Cable at lowest setting, raise arm to shoulder height, lower with control under constant tension."
+    },
+    {
+      "id": 51, "name": "Face Pull",
+      "primary_muscles": ["Posterior Deltoid", "Rhomboids"],
+      "secondary_muscles": ["Traps (Trapezius)", "Lateral Deltoid"],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Rope at forehead height, pull to face splitting the rope, rotate external at end, return slow."
+    },
+    {
+      "id": 52, "name": "Rear Delt Fly",
+      "primary_muscles": ["Posterior Deltoid"],
+      "secondary_muscles": ["Rhomboids", "Traps (Trapezius)"],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Hinged forward, raise dumbbells in wide arc to shoulder height leading with elbows, lower with control."
+    },
+    {
+      "id": 53, "name": "Dumbbell Front Raise",
+      "primary_muscles": ["Anterior Deltoid"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Raise one dumbbell in front to shoulder height with slight elbow bend, lower with control."
+    },
+    {
+      "id": 54, "name": "Reverse Pec Deck",
+      "primary_muscles": ["Posterior Deltoid"],
+      "secondary_muscles": ["Rhomboids"],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Facing the pad, grip handles, pull arms back in wide arc squeezing rear delts, return slowly."
+    },
+    {
+      "id": 55, "name": "Barbell Curl",
+      "primary_muscles": ["Biceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "barbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Underhand grip shoulder-width, curl bar to chin keeping elbows fixed, lower fully."
+    },
+    {
+      "id": 56, "name": "Dumbbell Curl",
+      "primary_muscles": ["Biceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Supinate as you curl each dumbbell to shoulder, lower with control."
+    },
+    {
+      "id": 57, "name": "Hammer Curl",
+      "primary_muscles": ["Biceps"],
+      "secondary_muscles": ["Traps (Trapezius)"],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Neutral grip (palms facing each other), curl dumbbell to shoulder, lower fully."
+    },
+    {
+      "id": 58, "name": "Preacher Curl",
+      "primary_muscles": ["Biceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "barbell", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Upper arm on preacher pad, curl bar up, do not swing, lower until elbows nearly straight."
+    },
+    {
+      "id": 59, "name": "Cable Curl",
+      "primary_muscles": ["Biceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Low cable, underhand bar, curl to chin keeping elbows fixed, return under constant tension."
+    },
+    {
+      "id": 60, "name": "Incline Dumbbell Curl",
+      "primary_muscles": ["Biceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": false, "beginner_friendly": false,
+      "instructions": "Seated on incline bench, arms hang behind body for full stretch, curl up supinating wrist."
+    },
+    {
+      "id": 61, "name": "Triceps Pushdown",
+      "primary_muscles": ["Triceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "High cable, elbows tucked to sides, push bar/rope down to full extension, return to 90 degrees."
+    },
+    {
+      "id": 62, "name": "Overhead Triceps Extension",
+      "primary_muscles": ["Triceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Rope behind head, elbows pointing up, extend arms overhead, lower rope behind head."
+    },
+    {
+      "id": 63, "name": "Skull Crusher",
+      "primary_muscles": ["Triceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "barbell", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Flat bench, arms vertical, lower bar toward forehead by bending elbows, press back to start."
+    },
+    {
+      "id": 64, "name": "Close-Grip Bench Press",
+      "primary_muscles": ["Triceps"],
+      "secondary_muscles": ["Chest (Pectoralis Major)", "Anterior Deltoid"],
+      "movement_pattern": "horizontal_push", "equipment": "barbell", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Shoulder-width or slightly narrower grip, lower bar to chest keeping elbows close, press up."
+    },
+    {
+      "id": 65, "name": "Triceps Dips",
+      "primary_muscles": ["Triceps"],
+      "secondary_muscles": ["Chest (Pectoralis Major)", "Anterior Deltoid"],
+      "movement_pattern": "horizontal_push", "equipment": "bodyweight", "exercise_type": "compound",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Upright torso on parallel bars, lower until elbows at 90 degrees, press back to lockout."
+    },
+    {
+      "id": 66, "name": "Dumbbell Kickback",
+      "primary_muscles": ["Triceps"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "dumbbell", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Hinged forward, upper arm parallel to floor, extend forearm back to lockout, lower slowly."
+    },
+    {
+      "id": 67, "name": "Lying Leg Curl",
+      "primary_muscles": ["Hamstrings"],
+      "secondary_muscles": ["Glutes"],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Face down, pad just above heels, curl toward glutes, hold briefly, lower fully."
+    },
+    {
+      "id": 68, "name": "Seated Leg Curl",
+      "primary_muscles": ["Hamstrings"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Seated, pad on top of lower legs, curl down toward floor, return to full extension."
+    },
+    {
+      "id": 69, "name": "Standing Leg Curl",
+      "primary_muscles": ["Hamstrings"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": false,
+      "instructions": "One leg, curl heel toward glute against resistance, control the descent."
+    },
+    {
+      "id": 70, "name": "Nordic Hamstring Curl",
+      "primary_muscles": ["Hamstrings"],
+      "secondary_muscles": ["Glutes"],
+      "movement_pattern": "isolation", "equipment": "bodyweight", "exercise_type": "isolation",
+      "difficulty": "advanced", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Ankles secured, fall forward slowly under hamstring control, push up with hands at bottom."
+    },
+    {
+      "id": 71, "name": "Standing Calf Raise",
+      "primary_muscles": ["Calves"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Balls of feet on platform, rise to full extension, hold, lower to full stretch."
+    },
+    {
+      "id": 72, "name": "Seated Calf Raise",
+      "primary_muscles": ["Calves"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Knees under pad, raise heels to full extension, lower to full stretch, focus on soleus."
+    },
+    {
+      "id": 73, "name": "Donkey Calf Raise",
+      "primary_muscles": ["Calves"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Hinged at hip, weight on lower back, raise heels to full extension, lower to full stretch."
+    },
+    {
+      "id": 74, "name": "Plank",
+      "primary_muscles": ["Core (Rectus Abdominis)"],
+      "secondary_muscles": ["Obliques", "Lower Back (Erector Spinae)"],
+      "movement_pattern": "core", "equipment": "bodyweight", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Forearms on floor, body straight, brace hard, hold position without sagging hips."
+    },
+    {
+      "id": 75, "name": "Cable Crunch",
+      "primary_muscles": ["Core (Rectus Abdominis)"],
+      "secondary_muscles": ["Obliques"],
+      "movement_pattern": "core", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Kneel facing cable, rope behind neck, crunch elbows to knees rounding the spine, return."
+    },
+    {
+      "id": 76, "name": "Hanging Leg Raise",
+      "primary_muscles": ["Core (Rectus Abdominis)"],
+      "secondary_muscles": ["Obliques", "Lats (Latissimus Dorsi)"],
+      "movement_pattern": "core", "equipment": "bodyweight", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Hang from bar, raise legs to parallel or higher with control, lower without swinging."
+    },
+    {
+      "id": 77, "name": "Ab Wheel Rollout",
+      "primary_muscles": ["Core (Rectus Abdominis)"],
+      "secondary_muscles": ["Obliques", "Lats (Latissimus Dorsi)"],
+      "movement_pattern": "core", "equipment": "bodyweight", "exercise_type": "isolation",
+      "difficulty": "intermediate", "bilateral": true, "beginner_friendly": false,
+      "instructions": "Knees on floor, wheel in hands, roll forward keeping hips low, pull back using abs."
+    },
+    {
+      "id": 78, "name": "Dead Bug",
+      "primary_muscles": ["Core (Rectus Abdominis)"],
+      "secondary_muscles": ["Obliques"],
+      "movement_pattern": "core", "equipment": "bodyweight", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "On back, arms up, knees 90 degrees, lower opposite arm and leg toward floor while pressing low back down."
+    },
+    {
+      "id": 79, "name": "Hip Abduction Machine",
+      "primary_muscles": ["Glutes"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "machine", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": true, "beginner_friendly": true,
+      "instructions": "Seated, pads on outer knees, push knees apart against resistance, return with control."
+    },
+    {
+      "id": 80, "name": "Cable Kickback",
+      "primary_muscles": ["Glutes"],
+      "secondary_muscles": ["Hamstrings"],
+      "movement_pattern": "isolation", "equipment": "cable", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "Ankle cuff on low cable, slight forward lean, kick leg straight back squeezing glute at top."
+    },
+    {
+      "id": 81, "name": "Donkey Kickback",
+      "primary_muscles": ["Glutes"],
+      "secondary_muscles": [],
+      "movement_pattern": "isolation", "equipment": "bodyweight", "exercise_type": "isolation",
+      "difficulty": "beginner", "bilateral": false, "beginner_friendly": true,
+      "instructions": "On hands and knees, drive one heel toward ceiling squeezing glute at top, lower with control."
+    }
+  ]
+}

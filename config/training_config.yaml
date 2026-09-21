@@ -1,0 +1,142 @@
+﻿# training_config.yaml
+# Evidence-based training parameters. Every value traces to a source.
+# Modify values here - not in Python code.
+
+volume_guidelines:
+  beginner:
+    minimum_effective: 6
+    recommended_range: [8, 12]
+    maximum_recoverable: 16
+    sources: ["SCHOENFELD-2017", "ACSM-2009", "KRIEGER-2010"]
+  intermediate:
+    minimum_effective: 8
+    recommended_range: [10, 16]
+    maximum_recoverable: 20
+    sources: ["SCHOENFELD-2017", "ACSM-2009", "NIPPARD-VIDEO-volume"]
+  advanced:
+    minimum_effective: 10
+    recommended_range: [12, 20]
+    maximum_recoverable: 25
+    sources: ["SCHOENFELD-2017", "ACSM-2026"]
+  per_session:
+    max_sets_per_muscle: 10
+    sources: ["NIPPARD-FUNDAMENTALS", "TNF-COACHING-volume"]
+  change_rules:
+    increase_step: 1
+    decrease_step: 2
+    sources: ["NIPPARD-VIDEO-volume"]
+
+rir_guidelines:
+  hypertrophy:
+    compound_exercises:
+      typical_range: [1, 3]
+      rationale: "Compounds generate high systemic fatigue; 1-3 RIR captures most stimulus"
+      sources: ["REFALO-2023", "NIPPARD-VIDEO-intensity"]
+    isolation_exercises:
+      typical_range: [0, 2]
+      rationale: "Isolations are less fatiguing; closer to failure is practical"
+      sources: ["REFALO-2023", "NIPPARD-VIDEO-intensity"]
+  strength:
+    primary_lifts:
+      typical_range: [1, 3]
+      rationale: "Technical breakdown risk increases near failure on heavy compounds"
+      sources: ["ACSM-2009", "HELMS-2016"]
+    accessory_lifts:
+      typical_range: [1, 3]
+      sources: ["ACSM-2009"]
+  failure_policy:
+    max_failure_sets_per_session: 2
+    failure_only_on: ["isolation"]
+    sources: ["REFALO-2023", "NIPPARD-FUNDAMENTALS"]
+
+rep_ranges:
+  hypertrophy:
+    effective_range: [5, 30]
+    typical_range: [6, 15]
+    rationale: "Hypertrophy occurs across a wide rep range when taken close to failure"
+    sources: ["SCHOENFELD-2021", "REFALO-2023"]
+  strength:
+    primary_range: [1, 6]
+    accessory_range: [6, 12]
+    rationale: "Heavier loads are superior for maximal strength"
+    sources: ["ACSM-2009", "ACSM-2026"]
+  general_fitness:
+    range: [8, 15]
+    sources: ["ACSM-2009"]
+
+rpe_rir_mapping:
+  # Standard Zourdos scale
+  # sources: ["ZOURDOS-2016", "HELMS-2016"]
+  10: 0
+  9: 1
+  8: 2
+  7: 3
+  6: 4
+  sources: ["ZOURDOS-2016", "HELMS-2016"]
+
+frequency_guidelines:
+  minimum_per_muscle: 1
+  recommended_per_muscle: 2
+  maximum_per_muscle: 4
+  rationale: "Frequency per se doesn't significantly affect hypertrophy when weekly volume is equated"
+  sources: ["SCHOENFELD-2019", "GRGIC-2018"]
+  schedule_templates:
+    2_days: "full_body"
+    3_days: "full_body"
+    4_days: "upper_lower"
+    5_days: "upper_lower_pull_push_legs"
+    6_days: "push_pull_legs"
+  schedule_sources: ["NIPPARD-FUNDAMENTALS", "TNF-VIDEO-programming"]
+
+progression:
+  default_model: "double_progression"
+  double_progression:
+    description: "Increase reps within range. When all sets hit top of range at target RIR, increase load."
+    stall_sessions_before_flag: 2
+    sources: ["ACSM-2009", "NIPPARD-VIDEO-progression"]
+  load_increments:
+    upper_body_kg: 2.5
+    lower_body_kg: 5.0
+    isolation_kg: 1.0
+    rationale: "Smaller increments for smaller muscles and movements"
+    sources: ["ACSM-2009"]
+
+recovery_rules:
+  performance_decline_threshold: 2
+  rir_deviation_threshold: 2
+  fatigue_detection_sources: ["ACSM-2009", "HELMS-2016"]
+  deload:
+    frequency_weeks_min: 4
+    frequency_weeks_max: 6
+    volume_reduction_factor: 0.5
+    reduce_intensity: false
+    sources: ["ACSM-2009", "NIPPARD-VIDEO-progression", "TNF-VIDEO-fatigue"]
+  safety_rules:
+    never_auto_increase_volume_when_declining: true
+    never_change_entire_program_from_one_session: true
+
+movement_patterns:
+  - squat
+  - hinge
+  - horizontal_push
+  - horizontal_pull
+  - vertical_push
+  - vertical_pull
+  - isolation
+  - carry
+  - core
+
+equipment_types:
+  - barbell
+  - dumbbell
+  - cable
+  - machine
+  - bodyweight
+  - kettlebell
+  - resistance_band
+  - smith_machine
+
+_meta:
+  last_reviewed: "2026-09"
+  primary_sources: ["ACSM-2009", "ACSM-2026", "SCHOENFELD-2017", "SCHOENFELD-2019", "SCHOENFELD-2021", "REFALO-2023", "KRIEGER-2010", "ZOURDOS-2016", "HELMS-2016", "GRGIC-2018"]
+  notes: "All ranges are evidence-informed starting points, not universal prescriptions. Individual variation is substantial."

@@ -1,0 +1,84 @@
+﻿# nutrition_config.yaml
+# Evidence-based nutrition parameters. Every value traces to a source.
+
+calorie_formulas:
+  default: "mifflin_st_jeor"
+  mifflin_st_jeor:
+    citation: "MIFFLIN-1990"
+    description: "Most validated equation for general population"
+    coefficients:
+      male:
+        weight: 10
+        height: 6.25
+        age: -5
+        constant: 5
+      female:
+        weight: 10
+        height: 6.25
+        age: -5
+        constant: -161
+
+activity_factors:
+  sedentary:
+    value: 1.2
+    description: "Little or no exercise, desk job"
+  lightly_active:
+    value: 1.375
+    description: "Light exercise 1-3 days/week"
+  moderately_active:
+    value: 1.55
+    description: "Moderate exercise 3-5 days/week"
+  very_active:
+    value: 1.725
+    description: "Hard exercise 6-7 days/week"
+  extremely_active:
+    value: 1.9
+    description: "Athlete or physical job + training"
+  sources: ["MIFFLIN-1990"]
+
+calorie_adjustments:
+  fat_loss:
+    deficit_range: [300, 500]
+    max_deficit: 750
+    rationale: "Moderate deficit preserves muscle mass during resistance training"
+    sources: ["IRAKI-2019", "ISSN-PROTEIN-2017"]
+  muscle_gain:
+    surplus_range: [200, 400]
+    rationale: "Small surplus supports muscle growth without excessive fat gain"
+    sources: ["IRAKI-2019"]
+  maintenance:
+    adjustment: 0
+    sources: ["MIFFLIN-1990"]
+
+macro_guidelines:
+  protein:
+    resistance_training_g_per_kg: 1.6
+    fat_loss_g_per_kg: 2.0
+    upper_practical_g_per_kg: 2.4
+    rationale: ">=1.6 g/kg/day maximizes resistance-training-induced muscle gains"
+    sources: ["MORTON-2018", "ISSN-PROTEIN-2017"]
+  fat:
+    minimum_percent_of_calories: 0.20
+    recommended_percent_of_calories: 0.25
+    rationale: "Below 20% may impair hormonal function"
+    sources: ["IRAKI-2019"]
+  carbohydrate:
+    calculation: "remaining_calories_after_protein_and_fat"
+    calories_per_gram: 4
+    rationale: "Carbs fill remaining calories; important for training performance"
+    sources: ["IRAKI-2019", "ISSN-PROTEIN-2017"]
+
+calories_per_gram:
+  protein: 4
+  carbohydrate: 4
+  fat: 9
+
+honest_limitations:
+  - "Calorie estimates have inherent +-10-15% error"
+  - "Mifflin-St Jeor is a population-level estimate, not individual physiology"
+  - "Targets are starting points — adjust based on 2-4 weeks of observed weight change"
+  - "This is not a replacement for a qualified registered dietitian"
+
+_meta:
+  last_reviewed: "2026-09"
+  primary_sources: ["MIFFLIN-1990", "MORTON-2018", "ISSN-PROTEIN-2017", "IRAKI-2019"]
