@@ -1,0 +1,39 @@
+# ─── Git ──────────────────────────────────────────────────────
+.git/
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ─── Environment ─────────────────────────────────────────────
+.env
+!.env.example
+*.env.local
+
+# ─── Virtual environments ─────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ─── IDE ──────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+
+# ─── Data files (large) ───────────────────────────────────────
+data/usda_raw/
+*.csv
+!data/exercises.json
+
+# ─── Test / coverage ──────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ─── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
