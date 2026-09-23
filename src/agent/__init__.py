@@ -2,8 +2,20 @@
 Science-Fit Agent Module — Layer 4 (LangGraph Personalization & Orchestration).
 """
 
+from src.agent.graph import build_agent_graph, fitness_agent_app
 from src.agent.llm import coach_llm, get_llm, strict_llm
-from src.agent.prompts import BASE_COACH_SYSTEM_PROMPT, INTENT_ROUTER_SYSTEM_PROMPT, build_coach_system_message
+from src.agent.nodes import (
+    coach_node,
+    guardrail_validator_node,
+    load_user_context_node,
+    retrieve_evidence_node,
+    route_intent_node,
+)
+from src.agent.prompts import (
+    BASE_COACH_SYSTEM_PROMPT,
+    INTENT_ROUTER_SYSTEM_PROMPT,
+    build_coach_system_message,
+)
 from src.agent.state import FitnessAgentState
 from src.agent.tools import (
     AGENT_TOOLS,
@@ -24,4 +36,11 @@ __all__ = [
     "search_scientific_evidence",
     "get_training_guidelines",
     "calculate_hypothetical_macros",
+    "load_user_context_node",
+    "route_intent_node",
+    "retrieve_evidence_node",
+    "coach_node",
+    "guardrail_validator_node",
+    "build_agent_graph",
+    "fitness_agent_app",
 ]

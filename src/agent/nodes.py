@@ -9,6 +9,7 @@ Follow the TODOs below to implement the agent logic!
 """
 
 import logging
+import re
 from typing import Any, Dict
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
@@ -190,8 +191,35 @@ async def guardrail_validator_node(state: FitnessAgentState) -> Dict[str, Any]:
             last_ai_msg = str(msg.content).lower()
             break
 
-    if "deficit of 1" in last_ai_msg or "deficit of 2" in last_ai_msg:
-        errors.append("Unsafe deficit suggested. Deficits should never exceed 1000 kcal/day.")
+    # 1. Calorie Deficit Guardrail: Catch numerical deficits > 1000 kcal
+    # Matches patterns like "deficit of 1200", "1200 kcal deficit", "1500 calorie deficit"
+    deficit_match = re.search(
+        r"(?:deficit\s*(?:of)?\s*(\d{3,4}))|(?:(\d{3,4})\s*(?:kcal|calorie|cal)?\s*deficit)",
+        last_ai_msg,
+    )
+    if deficit_match:
+        deficit_val = int(deficit_match.group(1) or deficit_match.group(2))
+        if deficit_val > 1000:
+            errors.append(
+                f"Unsafe calorie deficit suggested ({deficit_val} kcal/day). "
+                "Evidence-based guidelines (ISSN, Helms 2014) recommend a maximum deficit "
+                "of 500-750 kcal/day to prevent muscle loss and metabolic slowdown."
+            )
+
+    # 2. Volume Landmark Guardrail: Check for excessive weekly sets per muscle (> 25 sets)
+    # Matches patterns like "30 sets per week", "28 sets/week", "32 weekly sets"
+    volume_match = re.search(
+        r"(\d{2})\s*(?:sets?\s*(?:per|/)\s*week|weekly\s*sets?)",
+        last_ai_msg,
+    )
+    if volume_match:
+        sets_val = int(volume_match.group(1))
+        if sets_val > 25:
+            errors.append(
+                f"Excessive training volume suggested ({sets_val} sets/week). "
+                "Schoenfeld (2017) and ACSM guidelines indicate Maximum Recoverable Volume "
+                "(MRV) rarely exceeds 20-25 sets/week for any single muscle group."
+            )
 
     is_valid = len(errors) == 0 or iteration >= 2
 
