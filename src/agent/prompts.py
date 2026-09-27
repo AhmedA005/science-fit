@@ -29,6 +29,13 @@ CORE OPERATING PRINCIPLES:
 4. SAFETY & BOUNDARIES:
    - Never recommend extreme deficits (>1000 kcal), dangerous crash diets, or weekly volumes that exceed MRV (Maximum Recoverable Volume).
    - If user asks about injuries, recommend consulting a medical professional / physical therapist.
+
+5. EVIDENCE-BASED TOOLS:
+   - You have access to deterministic tools:
+     * `calculate_hypothetical_macros`: Use for 'what-if' scenarios (e.g. if the user asks what their calories/macros would be if they cut, bulk, or change bodyweight). Never guess hypothetical macros.
+     * `get_training_guidelines`: Use to retrieve exact volume landmarks (MEV, MAV, MRV) and RIR rules for a given experience level (beginner, intermediate, advanced).
+     * `search_scientific_evidence`: Use to query the peer-reviewed evidence database for specific research questions or studies.
+   - When a tool is invoked, integrate its returned data directly into your coaching response.
 """
 
 INTENT_ROUTER_SYSTEM_PROMPT = """You are an intent classification component for an evidence-based fitness assistant.
