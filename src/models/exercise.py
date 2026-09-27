@@ -7,7 +7,7 @@ Design decisions:
 - ExerciseMuscle is an explicit junction table (not relationship secondary)
   because it carries a `role` field (primary / secondary).
 - equipment and movement_pattern are plain strings referencing values defined
-  in training_config.yaml — keeping schema and config in sync.
+  in training_config.yaml  -  keeping schema and config in sync.
 """
 
 from sqlalchemy import Boolean, CheckConstraint, ForeignKey, String, Text, UniqueConstraint
@@ -94,8 +94,8 @@ class ExerciseMuscle(Base):
     """
     Junction table: Exercise ↔ Muscle with a role field.
 
-    role: "primary" — the main muscle being trained
-          "secondary" — meaningfully involved but not the focus
+    role: "primary"  -  the main muscle being trained
+          "secondary"  -  meaningfully involved but not the focus
     """
 
     __tablename__ = "exercise_muscles"

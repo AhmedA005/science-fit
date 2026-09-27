@@ -9,7 +9,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class ExerciseLogSchema(BaseModel):
-    """One logged set — mirrors the exercise_logs table row."""
+    """One logged set: mirrors the exercise_logs table row."""
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -69,7 +69,7 @@ class ExerciseProgressionSchema(BaseModel):
 class WorkoutContextSchema(BaseModel):
     """
     Full workout context passed to the LLM agent.
-    Everything calculated deterministically — the LLM doesn't recompute this.
+    Everything calculated deterministically: the LLM does not recompute this.
     """
 
     recent_sessions: list[SessionSummarySchema] = Field(default_factory=list)

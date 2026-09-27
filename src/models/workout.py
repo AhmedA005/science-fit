@@ -14,7 +14,7 @@ Design decisions:
 - Each set is a separate ExerciseLog row (not a JSON array of sets).
   This enables precise per-set volume/intensity queries in SQL.
 - is_warmup flag is critical: volume calculations ONLY count is_warmup=False rows.
-- evidence_sources on WorkoutPlan is JSONB — stores citation_ids used when
+- evidence_sources on WorkoutPlan is JSONB  -  stores citation_ids used when
   the agent generated the plan. Enables full traceability from plan → evidence.
 - progression_rule is a plain string key (e.g. "double_progression_8_12")
   that maps to logic in training_engine.py. Keeps DB simple, logic in code.
@@ -167,7 +167,7 @@ class WorkoutPlanExercise(Base):
 
 class WorkoutSession(Base, TimestampMixin):
     """
-    One actual gym visit — what the user did on a specific date.
+    One actual gym visit  -  what the user did on a specific date.
 
     Optionally linked to a WorkoutPlanDay (nullable: user may log
     sessions outside of their plan, e.g. an unplanned workout).

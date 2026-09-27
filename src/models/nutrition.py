@@ -50,7 +50,7 @@ class NutritionProfile(Base, TimestampMixin):
         ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )
 
-    # Calculated values (all deterministic — no LLM involvement)
+    # Calculated values (all deterministic  -  no LLM involvement)
     bmr: Mapped[float] = mapped_column(nullable=False)
     tdee: Mapped[float] = mapped_column(nullable=False)
     calorie_target: Mapped[float] = mapped_column(nullable=False)

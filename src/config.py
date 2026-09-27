@@ -16,7 +16,7 @@ class Config:
     POSTGRES_HOST     = os.getenv("POSTGRES_HOST")
     POSTGRES_PORT     = int(os.getenv("POSTGRES_PORT", "5432"))
 
-    # Async URL for SQLAlchemy (asyncpg) — used by the application at runtime
+    # Async URL for SQLAlchemy (asyncpg)  -  used by the application at runtime
     DATABASE_URL = (
         f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}"
         f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"

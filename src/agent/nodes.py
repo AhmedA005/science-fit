@@ -14,7 +14,7 @@ from typing import Any, Dict
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
-from src.agent.llm import coach_llm, strict_llm
+from src.agent.llm import coach_llm, coach_llm_with_tools, strict_llm
 from src.agent.prompts import (
     INTENT_ROUTER_SYSTEM_PROMPT,
     build_coach_system_message,
@@ -46,16 +46,22 @@ async def load_user_context_node(state: FitnessAgentState) -> Dict[str, Any]:
 
     user_id = state.get("user_id", 1)
 
-    async with AsyncSessionLocal() as session:
-        engine = TrainingEngine(session)
-        ctx = await engine.build_context(user_id=user_id, weeks_of_history=4)
-        context_text = engine.format_context_for_llm(ctx)
+    try:
+        async with AsyncSessionLocal() as session:
+            engine = TrainingEngine(session)
+            ctx = await engine.build_context(user_id=user_id, weeks_of_history=4)
+            context_text = engine.format_context_for_llm(ctx)
 
+            return {
+                "user_context": ctx.user,
+                "workout_context": ctx.workout,
+                "nutrition_targets": ctx.nutrition,
+                "engine_context_text": context_text,
+            }
+    except Exception as e:
+        logger.warning(f"Could not load DB user context: {e}")
         return {
-            "user_context": ctx.user,
-            "workout_context": ctx.workout,
-            "nutrition_targets": ctx.nutrition,
-            "engine_context_text": context_text,
+            "engine_context_text": state.get("engine_context_text") or "No active user workout data loaded from database.",
         }
 
 
@@ -129,8 +135,13 @@ async def retrieve_evidence_node(state: FitnessAgentState) -> Dict[str, Any]:
     # Determine RAG category filter based on intent
     category = "nutrition" if intent == "nutrition_guidance" else "training"
 
-    chunks = evidence_retriever.search(query=query, top_k=3, category=category)
-    evidence_text = evidence_retriever.format_evidence_for_prompt(chunks)
+    try:
+        chunks = evidence_retriever.search(query=query, top_k=3, category=category)
+        evidence_text = evidence_retriever.format_evidence_for_prompt(chunks)
+    except Exception as e:
+        logger.warning(f"Evidence retrieval failed: {e}")
+        chunks = []
+        evidence_text = ""
 
     return {
         "retrieved_evidence": chunks,
@@ -140,19 +151,19 @@ async def retrieve_evidence_node(state: FitnessAgentState) -> Dict[str, Any]:
 
 async def coach_node(state: FitnessAgentState) -> Dict[str, Any]:
     """
-    Node 4: LLM Coach Response Generation.
+    Node 4: LLM Coach Response Generation with Tool Calling.
 
     Assembles the dynamic system prompt with:
       - Ground-truth Layer 3 user context
       - RAG scientific evidence citations
       - Any guardrail validation errors from a prior pass
-    Invokes `coach_llm` and appends an AIMessage to the conversation.
+    Invokes `coach_llm_with_tools` and appends an AIMessage (which may contain
+    tool calls or final natural language guidance) to the conversation.
     """
     engine_context_text = state.get("engine_context_text")
     evidence_text = state.get("evidence_text")
     validation_errors = state.get("validation_errors", [])
     messages = list(state.get("messages", []))
-
 
     sys_content = build_coach_system_message(
         engine_context_text=engine_context_text,
@@ -160,8 +171,9 @@ async def coach_node(state: FitnessAgentState) -> Dict[str, Any]:
         validation_errors=validation_errors,
     )
 
-    llm_payload = [SystemMessage(content=sys_content)] + messages
-    response = await coach_llm.ainvoke(llm_payload)
+    filtered_messages = [m for m in messages if not isinstance(m, SystemMessage)]
+    llm_payload = [SystemMessage(content=sys_content)] + filtered_messages
+    response = await coach_llm_with_tools.ainvoke(llm_payload)
 
     return {
         "messages": [response],
@@ -187,7 +199,7 @@ async def guardrail_validator_node(state: FitnessAgentState) -> Dict[str, Any]:
 
     last_ai_msg = ""
     for msg in reversed(messages):
-        if isinstance(msg, AIMessage) or getattr(msg, "type", "") == "ai":
+        if (isinstance(msg, AIMessage) or getattr(msg, "type", "") == "ai") and getattr(msg, "content", ""):
             last_ai_msg = str(msg.content).lower()
             break
 

@@ -1,5 +1,5 @@
 """
-Workout repository — DB queries for sessions, logs, and plans.
+Workout repository  -  DB queries for sessions, logs, and plans.
 
 Key design: volume calculations ALWAYS filter is_warmup=False.
 This is enforced here so no service can accidentally count warmup sets.
@@ -109,7 +109,7 @@ async def get_exercise_sets_by_muscle(
             and_(
                 WorkoutSession.user_id == user_id,
                 WorkoutSession.session_date >= cutoff,
-                ExerciseLog.is_warmup == False,  # noqa: E712 — SQLAlchemy requires ==
+                ExerciseLog.is_warmup == False,  # noqa: E712  -  SQLAlchemy requires ==
                 ExerciseMuscle.role == "primary",  # count primary muscle involvement only
             )
         )
@@ -162,7 +162,7 @@ async def get_exercise_last_two_sessions(
     if not all_logs:
         return [], []
 
-    # Split by session id — first group = most recent
+    # Split by session id  -  first group = most recent
     seen_sessions: list[int] = []
     by_session: dict[int, list[ExerciseLog]] = {}
     for log in all_logs:

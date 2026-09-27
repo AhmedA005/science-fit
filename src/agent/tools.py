@@ -28,8 +28,13 @@ def search_scientific_evidence(query: str, category: Optional[str] = None) -> st
     Returns:
         Formatted citations and paper excerpts with exact citation IDs.
     """
-    chunks = evidence_retriever.search(query=query, top_k=3, category=category)
-    return evidence_retriever.format_evidence_for_prompt(chunks)
+    try:
+        chunks = evidence_retriever.search(query=query, top_k=3, category=category)
+        if not chunks:
+            return f"No scientific evidence found matching query: '{query}'."
+        return evidence_retriever.format_evidence_for_prompt(chunks)
+    except Exception as e:
+        return f"Unable to retrieve scientific evidence at this time ({e}). Proceed using foundational exercise science principles."
 
 
 @tool
@@ -93,32 +98,35 @@ def calculate_hypothetical_macros(
     Returns:
         Structured text with calculated BMR, TDEE, calories, and protein/carb/fat targets.
     """
-    dummy_profile = UserProfileSchema(
-        id=0,
-        email="hypothetical@sciencefit.local",
-        name="Hypothetical User",
-        age=age,
-        gender=gender.lower(),
-        height_cm=height_cm,
-        weight_kg=weight_kg,
-        activity_level=activity_level.lower(),
-        goal=goal.lower(),
-        experience_level="intermediate",
-        training_days_per_week=4,
-    )
+    try:
+        dummy_profile = UserProfileSchema(
+            id=0,
+            name="Hypothetical User",
+            age=age,
+            gender=gender.lower(),
+            height_cm=height_cm,
+            weight_kg=weight_kg,
+            experience_level="intermediate",
+            goal=goal.lower(),
+            training_days_per_week=4,
+            session_duration_minutes=60,
+        )
 
-    targets = calculate_nutrition_targets(dummy_profile)
-    lines = [
-        f"=== HYPOTHETICAL NUTRITION TARGETS ({goal.upper()}) ===",
-        f"- BMR: {targets.bmr} kcal | TDEE: {targets.tdee} kcal",
-        f"- Calorie Target: {targets.calorie_target} kcal ({targets.goal_adjustment_kcal:+.0f} kcal adjustment)",
-        f"- Protein: {targets.protein_target_g}g ({targets.protein_g_per_kg:.1f} g/kg)",
-        f"- Carbohydrates: {targets.carb_target_g}g",
-        f"- Fats: {targets.fat_target_g}g",
-        f"- Scientific Citations: {', '.join(targets.citation_sources)}",
-        "=== END HYPOTHETICAL TARGETS ===",
-    ]
-    return "\n".join(lines)
+        targets = calculate_nutrition_targets(dummy_profile, activity_level=activity_level.lower())
+        protein_g_per_kg = round(targets.protein_target_g / max(weight_kg, 1.0), 1)
+        lines = [
+            f"=== HYPOTHETICAL NUTRITION TARGETS ({goal.upper()}) ===",
+            f"- BMR: {targets.bmr} kcal | TDEE: {targets.tdee} kcal",
+            f"- Calorie Target: {targets.calorie_target} kcal ({targets.goal_adjustment_kcal:+.0f} kcal adjustment)",
+            f"- Protein: {targets.protein_target_g}g ({protein_g_per_kg} g/kg)",
+            f"- Carbohydrates: {targets.carb_target_g}g",
+            f"- Fats: {targets.fat_target_g}g",
+            f"- Scientific Citations: {', '.join(targets.citation_sources)}",
+            "=== END HYPOTHETICAL TARGETS ===",
+        ]
+        return "\n".join(lines)
+    except Exception as e:
+        return f"Error calculating hypothetical nutrition targets: {e}"
 
 
 AGENT_TOOLS = [

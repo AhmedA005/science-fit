@@ -1,3 +1,3 @@
 """
-science-fit — source package root.
+science-fit  -  source package root.
 """

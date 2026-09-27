@@ -1,5 +1,5 @@
 """
-Knowledge Base Indexer — chunks scientific markdown documents and indexes them in Qdrant.
+Knowledge Base Indexer  -  chunks scientific markdown documents and indexes them in Qdrant.
 
 Uses:
 - FastEmbed nomic-ai/nomic-embed-text-v1.5 (768-dimensional vectors)

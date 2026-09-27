@@ -1,5 +1,5 @@
 """
-Nutrition repository — DB queries for nutrition profiles.
+Nutrition repository  -  DB queries for nutrition profiles.
 """
 
 from sqlalchemy import desc, select
@@ -14,7 +14,7 @@ async def get_latest_nutrition_profile(
 ) -> NutritionTargetsSchema | None:
     """
     Return the most recent nutrition profile for a user.
-    NutritionProfile is append-only — latest row is always current.
+    NutritionProfile is append-only  -  latest row is always current.
     """
     result = await session.execute(
         select(NutritionProfile)
@@ -54,7 +54,7 @@ async def save_nutrition_profile(
 ) -> NutritionProfile:
     """
     Save a new nutrition profile snapshot (append-only).
-    Always inserts a new row — never updates existing ones (audit trail).
+    Always inserts a new row  -  never updates existing ones (audit trail).
     """
     profile = NutritionProfile(
         user_id=user_id,

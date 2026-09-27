@@ -4,7 +4,7 @@ Food and meal plan ORM models.
 Design decisions:
 - Food stores a snapshot of USDA nutritional data per 100g (canonical form).
   quantity_g in MealPlanItem then scales everything at query time.
-- MealPlan is optional / suggestive — as decided in project scope, meal
+- MealPlan is optional / suggestive  -  as decided in project scope, meal
   generation is a suggestion, not mandatory. A user always has a
   NutritionProfile (calorie/macro targets) even without a MealPlan.
 - MealPlanItem stores pre-calculated macros (calories, protein, carb, fat)
@@ -20,14 +20,14 @@ from src.models.base import Base, TimestampMixin
 class Food(Base):
     """
     A food item from USDA FoodData Central (Foundation Foods + SR Legacy).
-    All macro values are per 100g — scale by quantity_g when building meals.
+    All macro values are per 100g  -  scale by quantity_g when building meals.
     """
 
     __tablename__ = "foods"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
 
-    # Original USDA FoodData Central ID — allows tracing back to source data
+    # Original USDA FoodData Central ID  -  allows tracing back to source data
     fdc_id: Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
 
     name: Mapped[str] = mapped_column(String(200), nullable=False)
@@ -64,7 +64,7 @@ class MealPlan(Base, TimestampMixin):
 
     Linked to a NutritionProfile so the plan targets are traceable.
     A user can have macro targets (NutritionProfile) without ever
-    generating a MealPlan — meal planning is suggestive, not mandatory.
+    generating a MealPlan  -  meal planning is suggestive, not mandatory.
     """
 
     __tablename__ = "meal_plans"

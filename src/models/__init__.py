@@ -4,7 +4,7 @@ Import all ORM models here so that:
 2. SQLAlchemy relationship resolution works (all models in memory together).
 
 Usage in alembic/env.py:
-    import src.models  # noqa — triggers all model imports
+    import src.models  # noqa  -  triggers all model imports
     from src.models.base import Base
     target_metadata = Base.metadata
 """

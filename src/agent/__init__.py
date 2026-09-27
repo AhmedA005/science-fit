@@ -1,9 +1,9 @@
 """
-Science-Fit Agent Module — Layer 4 (LangGraph Personalization & Orchestration).
+Science-Fit Agent Module  -  Layer 4 (LangGraph Personalization & Orchestration).
 """
 
 from src.agent.graph import build_agent_graph, fitness_agent_app
-from src.agent.llm import coach_llm, get_llm, strict_llm
+from src.agent.llm import coach_llm, coach_llm_with_tools, get_llm, strict_llm
 from src.agent.nodes import (
     coach_node,
     guardrail_validator_node,
@@ -28,6 +28,7 @@ __all__ = [
     "FitnessAgentState",
     "get_llm",
     "coach_llm",
+    "coach_llm_with_tools",
     "strict_llm",
     "BASE_COACH_SYSTEM_PROMPT",
     "INTENT_ROUTER_SYSTEM_PROMPT",

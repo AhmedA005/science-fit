@@ -1,5 +1,5 @@
 """
-Volume Calculator — determines weekly sets per muscle and flags deviations.
+Volume Calculator  -  determines weekly sets per muscle and flags deviations.
 
 Evidence basis:
 - MEV/MRV thresholds come from training_config.yaml (sourced from Schoenfeld 2017, ACSM 2009)
@@ -8,7 +8,7 @@ Evidence basis:
 
 Key distinction:
 - This module does NOT decide what to do about a volume issue.
-  It just reports: "This muscle has X sets — that's below MEV / in range / above MRV."
+  It just reports: "This muscle has X sets  -  that's below MEV / in range / above MRV."
 - The LLM decides how to adjust the plan based on this report.
 """
 
@@ -60,7 +60,7 @@ async def calculate_weekly_volume(
     1. Query DB for sets per primary muscle (warmup excluded by repo)
     2. Load MEV/MRV thresholds from config
     3. Classify each muscle as below_mev / in_range / above_mrv
-    4. Return sorted list (below_mev first — most urgent)
+    4. Return sorted list (below_mev first  -  most urgent)
 
     Args:
         session: async DB session

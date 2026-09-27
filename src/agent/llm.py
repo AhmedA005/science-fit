@@ -7,6 +7,7 @@ and parameters aligned with the project's evidence-based constraints.
 
 from typing import Any
 from langchain_ollama import ChatOllama
+from src.agent.tools import AGENT_TOOLS
 
 from src.config import Config
 
@@ -46,6 +47,9 @@ def get_llm(
 
 # Default shared LLM instance for coaching and synthesis
 coach_llm = get_llm(temperature=0.2)
+
+# Tool-augmented coach LLM capable of function calling
+coach_llm_with_tools = coach_llm.bind_tools(AGENT_TOOLS)
 
 # Strict LLM instance with 0.0 temperature for routing and guardrails
 strict_llm = get_llm(temperature=0.0)

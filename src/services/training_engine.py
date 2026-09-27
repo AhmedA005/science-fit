@@ -1,5 +1,5 @@
 """
-Training Engine — orchestrates all deterministic calculations and produces
+Training Engine  -  orchestrates all deterministic calculations and produces
 the complete context that the LLM agent receives.
 
 This is the boundary between Layer 3 (deterministic calculations) and
@@ -30,6 +30,8 @@ from src.repositories import (
 from src.schemas import (
     FullUserContext,
     NutritionTargetsSchema,
+    UserPreferencesSchema,
+    UserProfileSchema,
     WorkoutContextSchema,
 )
 from src.services.nutrition_calculator import calculate_nutrition_targets
@@ -43,7 +45,7 @@ logger = logging.getLogger(__name__)
 class UserEngineContext:
     """
     The complete context produced by the training engine.
-    Everything the LLM needs — nothing more.
+    Everything the LLM needs  -  nothing more.
     """
 
     user: FullUserContext
@@ -124,9 +126,9 @@ class TrainingEngine:
         # 6. Get or calculate nutrition targets
         nutrition = await get_latest_nutrition_profile(self.session, user_id)
         if nutrition is None:
-            # No saved profile — calculate fresh (don't persist here, agent can trigger that)
+            # No saved profile  -  calculate fresh (don't persist here, agent can trigger that)
             nutrition = calculate_nutrition_targets(profile)
-            logger.info("No saved nutrition profile found — calculated fresh targets")
+            logger.info("No saved nutrition profile found  -  calculated fresh targets")
 
         logger.info(
             "Context built: %d sessions, %d muscles tracked, %d exercises checked",
@@ -141,19 +143,42 @@ class TrainingEngine:
             nutrition=nutrition,
         )
 
-    def format_context_for_llm(self, context: UserEngineContext) -> str:
+    @classmethod
+    def build_custom_context(
+        cls,
+        profile: UserProfileSchema,
+        preferences: UserPreferencesSchema | None = None,
+        workout_context: WorkoutContextSchema | None = None,
+        activity_level: str | None = None,
+    ) -> UserEngineContext:
+        """
+        Builds a verified UserEngineContext directly from user input without requiring database access.
+        Used for on-the-fly interactive user sessions and public onboarding.
+        """
+        prefs = preferences or UserPreferencesSchema()
+        user_ctx = FullUserContext(profile=profile, preferences=prefs)
+        nutrition = calculate_nutrition_targets(profile, activity_level=activity_level)
+        workout = workout_context or WorkoutContextSchema()
+        return UserEngineContext(
+            user=user_ctx,
+            workout=workout,
+            nutrition=nutrition,
+        )
+
+    @classmethod
+    def format_context_for_llm(cls, context: UserEngineContext) -> str:
         """
         Format the engine context as a structured text block for the LLM system prompt.
 
         The LLM receives this as factual, pre-calculated data.
-        It should reference these numbers — not recalculate them.
+        It should reference these numbers  -  not recalculate them.
         """
         u = context.user.profile
         n = context.nutrition
         w = context.workout
 
         lines = [
-            "=== SCIENCE-FIT USER CONTEXT (Pre-calculated — do not recalculate) ===",
+            "=== SCIENCE-FIT USER CONTEXT (Pre-calculated  -  do not recalculate) ===",
             "",
             f"USER: {u.name} | Age: {u.age} | Gender: {u.gender}",
             f"Body: {u.weight_kg}kg, {u.height_cm}cm | Level: {u.experience_level}",

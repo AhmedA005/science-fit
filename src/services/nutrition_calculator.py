@@ -1,14 +1,14 @@
 """
-Nutrition Calculator — deterministic TDEE and macro calculations.
+Nutrition Calculator  -  deterministic TDEE and macro calculations.
 
 Evidence basis (nutrition_config.yaml):
-- BMR: Mifflin-St Jeor equation (MIFFLIN-1990) — most validated for general population
+- BMR: Mifflin-St Jeor equation (MIFFLIN-1990)  -  most validated for general population
 - Activity factor: standard multipliers (sedentary → extremely active)
 - Protein: ≥1.6 g/kg/day for hypertrophy (MORTON-2018, ISSN-PROTEIN-2017)
 - Fat: minimum 20% of calories for hormonal health (IRAKI-2019)
 - Carbs: remaining calories after protein and fat
 
-Everything is deterministic — same inputs always produce same outputs.
+Everything is deterministic  -  same inputs always produce same outputs.
 The LLM never performs these calculations; it only interprets the results.
 """
 
@@ -48,7 +48,7 @@ def _get_activity_factor(activity_level: str, config: dict) -> float:
 def _infer_activity_level(training_days: int) -> str:
     """
     Map training days per week to an activity level.
-    Simple heuristic — the LLM can ask the user to confirm this.
+    Simple heuristic  -  the LLM can ask the user to confirm this.
     """
     if training_days <= 1:
         return "sedentary"
@@ -86,7 +86,7 @@ def _protein_target(weight_kg: float, goal: str, config: dict) -> float:
     macros = config.get("macro_guidelines", {}).get("protein", {})
     if goal == "fat_loss":
         g_per_kg = macros.get("fat_loss_g_per_kg", 2.0)
-        label = f"{g_per_kg} g/kg (fat_loss — muscle preservation)"
+        label = f"{g_per_kg} g/kg (fat_loss  -  muscle preservation)"
     else:
         g_per_kg = macros.get("resistance_training_g_per_kg", 1.6)
         label = f"{g_per_kg} g/kg (resistance training)"
@@ -139,7 +139,7 @@ def calculate_nutrition_targets(
     # Load limitations from config
     limitations = config.get("honest_limitations", [
         "Calorie estimates have inherent ±10-15% error",
-        "Targets are starting points — adjust based on 2-4 weeks of observed weight change",
+        "Targets are starting points  -  adjust based on 2-4 weeks of observed weight change",
     ])
 
     return NutritionTargetsSchema(

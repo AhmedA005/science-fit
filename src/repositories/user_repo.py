@@ -1,5 +1,5 @@
 """
-User repository — all DB queries related to users.
+User repository  -  all DB queries related to users.
 
 Returns Pydantic schemas, not raw ORM objects.
 The service layer never touches SQLAlchemy directly.

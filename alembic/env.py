@@ -1,5 +1,5 @@
 """
-Alembic environment — connects migrations to our models and database.
+Alembic environment  -  connects migrations to our models and database.
 
 Key responsibilities:
 1. Set the DB URL from Config (keeps credentials out of alembic.ini)
@@ -31,7 +31,7 @@ if config.config_file_name is not None:
 # Tell Alembic what our schema looks like (all 15 tables)
 target_metadata = Base.metadata
 
-# Override the DB URL with our sync URL (psycopg2) — never from alembic.ini
+# Override the DB URL with our sync URL (psycopg2)  -  never from alembic.ini
 config.set_main_option("sqlalchemy.url", Config.SYNC_DATABASE_URL)
 
 

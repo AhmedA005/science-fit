@@ -1,7 +1,7 @@
 """
 Pydantic schemas for user domain.
 
-These are data-transfer objects (DTOs) — not ORM models.
+These are data-transfer objects (DTOs)  -  not ORM models.
 Used to validate and type data flowing between layers:
     DB (ORM) → Repository → Service → Agent
 """
