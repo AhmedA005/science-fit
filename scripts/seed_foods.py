@@ -4,7 +4,7 @@ Seed script: import USDA FoodData Central data into PostgreSQL.
 Downloads Foundation Foods + SR Legacy from the USDA API (free, no key needed
 for DEMO_KEY tier) and imports a curated subset of common foods.
 
-All values are stored per 100g — MealPlanItem.quantity_g scales them at query time.
+All values are stored per 100g  -  MealPlanItem.quantity_g scales them at query time.
 
 Usage:
     python scripts/seed_foods.py
