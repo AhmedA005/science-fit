@@ -8,7 +8,7 @@ from pydantic import BaseModel, ConfigDict
 class NutritionTargetsSchema(BaseModel):
     """
     Calculated nutrition targets for a user.
-    All values are deterministic — derived from Mifflin-St Jeor + config.
+    All values are deterministic  -  derived from Mifflin-St Jeor + config.
     """
 
     model_config = ConfigDict(from_attributes=True)
@@ -21,7 +21,7 @@ class NutritionTargetsSchema(BaseModel):
     fat_target_g: float
     goal: str
 
-    # Audit trail — what formula and inputs produced these numbers
+    # Audit trail  -  what formula and inputs produced these numbers
     formula_used: str = "mifflin_st_jeor"
     activity_factor: float = 1.55
     activity_level: str = "moderately_active"
@@ -32,5 +32,5 @@ class NutritionTargetsSchema(BaseModel):
     # Honest caveats shown to user
     limitations: list[str] = [
         "Calorie estimates have inherent ±10-15% error",
-        "Targets are starting points — adjust based on 2-4 weeks of observed weight change",
+        "Targets are starting points  -  adjust based on 2-4 weeks of observed weight change",
     ]

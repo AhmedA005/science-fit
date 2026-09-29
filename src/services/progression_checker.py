@@ -1,5 +1,5 @@
 """
-Progression Checker — evaluates double progression for each exercise.
+Progression Checker  -  evaluates double progression for each exercise.
 
 Evidence basis (training_config.yaml):
 - Double progression: increase reps within target range at target RIR.
@@ -38,7 +38,7 @@ def _load_progression_config() -> dict:
 
 
 def _avg(values: list[float | int]) -> float:
-    """Safe average — returns 0.0 for empty list."""
+    """Safe average  -  returns 0.0 for empty list."""
     return statistics.mean(values) if values else 0.0
 
 
@@ -63,7 +63,7 @@ def _classify_progression(
     3. regressing: reps or weight dropped vs previous session
     4. stalled: no change in reps or weight
     """
-    # No previous data — can't assess yet
+    # No previous data  -  can't assess yet
     if prev_reps == 0 and prev_weight == 0:
         return "progressing", "Not enough sessions to assess progression yet."
 
@@ -86,7 +86,7 @@ def _classify_progression(
         return (
             "regressing",
             f"Average reps dropped from {prev_reps:.1f} to {last_reps:.1f} at {last_weight:.1f}kg. "
-            "Possible fatigue accumulation — monitor next session.",
+            "Possible fatigue accumulation  -  monitor next session.",
         )
 
     # Load increase (progressive overload via load)
@@ -152,7 +152,7 @@ async def check_progression(
         )
 
         if not last_logs:
-            continue  # Exercise never logged — skip
+            continue  # Exercise never logged  -  skip
 
         # Compute averages for last session
         last_reps = _avg([log.reps for log in last_logs])

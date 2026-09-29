@@ -1,5 +1,5 @@
 """
-RAG Retriever Service — searches Qdrant for relevant scientific evidence.
+RAG Retriever Service  -  searches Qdrant for relevant scientific evidence.
 
 Returns typed evidence chunks and formats them with standardized citation tags
 for direct consumption by the LangGraph agent prompt.
